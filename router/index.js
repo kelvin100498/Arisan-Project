@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {useSelector, useDispatch} from 'react-redux';
+import React, { useEffect } from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //import screen
@@ -28,12 +28,12 @@ const Stack = createNativeStackNavigator();
 //StackScreen
 const Router = () => {
   const dispatch = useDispatch();
-  const isLogin = useSelector(state => state.loginReducer.isLogin);
+  const isLogin = useSelector((state) => state.loginReducer.isLogin);
 
   const checkLogin = async () => {
     const token = await AsyncStorage.getItem('token');
     if (token) {
-      dispatch({type: 'loginSuccess'});
+      dispatch({ type: 'LOGIN_BERHASIL' });
     }
   };
 
@@ -46,12 +46,12 @@ const Router = () => {
       {isLogin ? (
         <>
           <Stack.Screen
-            name="BottomTab"
+            name='BottomTab'
             component={BottomTab}
-            options={{headerShown: false}}
+            options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="Buat Arisan"
+            name='Buat Arisan'
             component={BuatArisan}
             options={{
               title: 'Buat Arisan',
@@ -65,7 +65,7 @@ const Router = () => {
           />
 
           <Stack.Screen
-            name="Ganti Password"
+            name='Ganti Password'
             component={GantiPassword}
             options={{
               title: 'Ganti Password',
@@ -78,7 +78,7 @@ const Router = () => {
             }}
           />
           <Stack.Screen
-            name="Search Arisan"
+            name='Search Arisan'
             component={SearchArisan}
             options={{
               title: 'Cari Arisan',
@@ -91,7 +91,7 @@ const Router = () => {
             }}
           />
           <Stack.Screen
-            name="Edit Profile"
+            name='Edit Profile'
             component={EditProfile}
             options={{
               title: 'Edit Profile',
@@ -104,7 +104,7 @@ const Router = () => {
             }}
           />
           <Stack.Screen
-            name="Edit Arisan"
+            name='Edit Arisan'
             component={EditArisan}
             options={{
               title: 'Edit Arisan',
@@ -117,7 +117,7 @@ const Router = () => {
             }}
           />
           <Stack.Screen
-            name="Edit Peserta"
+            name='Edit Peserta'
             component={EditPeserta}
             options={{
               title: 'Edit Peserta',
@@ -130,7 +130,7 @@ const Router = () => {
             }}
           />
           <Stack.Screen
-            name="Detail Arisan"
+            name='Detail Arisan'
             component={DetailArisan}
             options={{
               title: 'Detail Arisan',
@@ -143,7 +143,7 @@ const Router = () => {
             }}
           />
           <Stack.Screen
-            name="Tambah Peserta"
+            name='Tambah Peserta'
             component={TambahPeseta}
             options={{
               title: 'Tambah Peserta',
@@ -156,7 +156,7 @@ const Router = () => {
             }}
           />
           <Stack.Screen
-            name="Kocok Arisan"
+            name='Kocok Arisan'
             component={KocokArisan}
             options={{
               title: 'Kocok Arisan',
@@ -169,17 +169,17 @@ const Router = () => {
             }}
           />
           <Stack.Screen
-            name="Pemenang Arisan"
+            name='Pemenang Arisan'
             component={PemenangArisan}
-            options={{headerShown: false}}
+            options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="Confirm"
+            name='Confirm'
             component={ConfirmScreen}
-            options={{headerShown: false}}
+            options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="History Arisan"
+            name='History Arisan'
             component={HistoryArisan}
             options={{
               title: 'History Arisan',
@@ -195,14 +195,14 @@ const Router = () => {
       ) : (
         <>
           <Stack.Screen
-            name="SignIn"
+            name='SignIn'
             component={SignIn}
-            options={{headerShown: false}}
+            options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="SignUp"
+            name='SignUp'
             component={SignUp}
-            options={{headerShown: false}}
+            options={{ headerShown: false }}
           />
         </>
       )}
